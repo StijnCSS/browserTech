@@ -42,21 +42,54 @@
 }
 * {
 font-family: 'inter';}
+
+/* https://www.marcbacon.com/tools/clamp-calculator/ CLAMP CALC */
 /* Heading XXL */
 h1 {
-    font-size: 3rem;
-    line-height: 3,75rem;
+    font-size: clamp(2.25rem, 0.485rem + 4.412vw, 3rem);
+    line-height: 1.25;
+    
+    color:  var(--ns-blue);
 }
 
 /* Heading XL */
 h2 {
-    font-size: 2.25rem;
-    line-height: 2.8rem;
+    font-size: clamp(2rem, 1.118rem + 2.206vw, 2.375rem);
+    line-height: 1,185;
 }
 
 /* Heading L */
-h3{
-    font-size: 1.875rem;
-    line-height: 2.5rem; 
+h3 {
+    font-size: clamp(1.75rem, 1.456rem + 0.735vw, 1.875rem);
+    line-height: 1,35; 
 }
 
+/* Heading M */
+h4 {
+    font-size: clamp(1.25rem, 0.662rem + 1.471vw, 1.5rem);
+    line-height: 1,25; 
+}
+
+/* Heading S */
+h5 {
+    font-size: clamp(1.125rem, 0.831rem + 0.735vw, 1.25rem);
+    line-height: 1,25; 
+}
+
+/* Heading XS */
+h6 {
+    font-size: clamp(1rem, 0.706rem + 0.735vw, 1.125rem);
+    line-height: 1,4; 
+}
+
+/* default text */
+P {
+    font-size: 1em;
+    line-height: 1,55;
+}
+
+/* small text  Sanne is fan!*/
+small {
+    font-size:0.875em;
+    line-height: 1,4;
+}
