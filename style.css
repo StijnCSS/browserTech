@@ -1,7 +1,8 @@
-:root{
+html {
     --ns-yellow: #ffc917;
     --ns-blue: #003082;
     --ns-light-blue: #0063d3;
+    --ns-light-blue-2: #D9ECF7;
     
     --ns-white: #ffffff;
     --ns-grey: #070721;
@@ -21,13 +22,16 @@
     --ns-ovchip: #ff0098;
     --ns-ovorange: #ff7700;
     
-    --ns-light-blue: #0079d3;
-    --ns-light-blue-2: #005ca0;
+    --ns-light-blue-text: #0079d3;
+    --ns-light-blue-hover: #005ca0;
     --ns-yellow-2: #ffb519;
     
     --ns-grey-alpha-60: #070721 (60%);
     --ns-grey-alpha-15 : #070721 (15%);
     --ns-grey-alpha-10 : #070721 (10%);
+    
+    --ns-max-width: 1200px;
+    --ns-border-radius: .25em;
 }
 
 @font-face {
@@ -47,9 +51,14 @@
 }
 
 body{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 background: var(--ns-grey-90);
 }
 /* https://www.marcbacon.com/tools/clamp-calculator/ CLAMP CALC */
+
 /* Heading XXL */
 h1,h2,h3 {
     color:  var(--ns-blue);
@@ -80,9 +89,10 @@ h4 {
 }
 
 /* Heading S */
-h5 {
+h5, legend {
     font-size: clamp(1.125rem, 0.831rem + 0.735vw, 1.25rem);
     line-height: 1.25; 
+    padding-bottom: .5em;
 }
 
 /* Heading XS */
@@ -97,11 +107,16 @@ P {
     line-height: 1.55;
 }
 
-a{
+form p {
+    display: flex;
+    padding-bottom: 1em;
+}
+
+a {
     color: var(--ns-light-blue)
 }
 
-a:hover{
+a:hover {
     color: var(--ns-blue)
 }
 
@@ -111,23 +126,104 @@ small {
     line-height: 1.4;
 }
 
-header{
-    font-weight: 500;
-    margin: 1em;
+header {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
+    align-items: center; 
+    width: 100%;
+    padding: .5em 0;
+    max-width: var(--ns-max-width);
     background: var(--ns-yellow);
-    padding: .5em;
+    font-weight: 500;
+    margin: 1em 0;
+    border-radius: var(--ns-border-radius);
 }
 
-section{
+section {
+    width: 96%;
+    max-width: var(--ns-max-width);
+    box-sizing: border-box;
     background: var(--ns-white);
     padding: 2em;
-    margin: 1em;
+    
 }
 
-input{
-    padding: .5em;
+span{
+    color: var(--ns-red-alert);
+}
+
+form {
+    width: 96%;
+    box-sizing: border-box;
+    max-width: var(--ns-max-width);
+}
+
+fieldset {
+    margin-top: 1em;
+    padding: 2em 2em 1em 2em;
     border:none;
-    background: var(--ns-grey-94);
+    border-radius: var(--ns-border-radius);
+    background: var(--ns-white);
+}
+
+fieldset > fieldset {
+    padding: 0;
+    margin-top: 0;
+}
+
+legend {
+    display: block;
+    margin-left:-1.5em;
+    width: 100%;
+    padding: 1em;
+    background:var(--ns-white);
+}
+label{
+    display: inline-block;
+    width: 18em;
+}
+input {
+    width: 50%;
+    flex-grow: 1;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid var(--ns-grey-20);
+    border-radius: var(--ns-border-radius)
+}
+
+.intro div {
+    display: flex;
+    gap: 1em;
+}
+
+input[type=submit] {
+    background: var(--ns-light-blue);
+    padding: 1em 1.5em;
+    border-radius: 0.3em;
+    color: var(--ns-white);
+    font-weight: 400;
+    font-size: 1em;
+    
+}
+
+.tip{
+    display: flex;
+    align-items: center;
+    
+    background:var(--ns-light-blue-2) 50%;
+    padding: .5em 1em;
+    border-left: 8px solid var(--ns-blue);
+    border-radius: calc(var(--ns-border-radius) * 2);
+    margin-top: 1em;
+}
+
+.tip p{
+    padding: 0;
+}
+
+/* Bijna elke input in dit formulier is required dus dit is niet de beste methode omdat dan alles een * krijgt maar ik wilde testen of dit werkt */
+label:has(+ input:required)::after{
+    content: " *";
+    color: var(--ns-red-alert); 
 }
