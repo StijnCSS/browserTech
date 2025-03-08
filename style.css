@@ -192,6 +192,10 @@ input {
     border-radius: var(--ns-border-radius)
 }
 
+input[type=radio] {
+width: fit-content;
+}
+
 .intro div {
     display: flex;
     gap: 1em;
@@ -227,3 +231,15 @@ label:has(+ input:required)::after{
     content: " *";
     color: var(--ns-red-alert); 
 }
+
+#statusKeuze2:checked ~ .hidden {
+    display: block;
+}
+/* Support voor bepaalde progessive enhancement niet supporten */
+/* @supports selector(:has(input:checked)) {
+    .hidden{
+        display: none;
+        background: var(--ns-light-blue);
+    }
+} */
+
