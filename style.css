@@ -30,14 +30,16 @@ html {
     --ns-grey-alpha-15 : #070721 (15%);
     --ns-grey-alpha-10 : #070721 (10%);
     
-    --ns-max-width: 1200px;
+    --ns-max-width: 960px;
     --ns-border-radius: .25em;
+    
+    --padd: 2rem;
 }
 
 @font-face {
     font-family: 'inter';
     src: url(./resources/Inter-VariableFont_opsz\,wght.ttf) format(truetype);
-}
+}   
 
 @font-face {
     font-family: 'inter';
@@ -47,6 +49,7 @@ html {
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'inter';
 }
 
@@ -57,6 +60,7 @@ justify-content: center;
 flex-direction: column;
 background: var(--ns-grey-90);
 }
+
 /* https://www.marcbacon.com/tools/clamp-calculator/ CLAMP CALC */
 
 /* Heading XXL */
@@ -127,7 +131,6 @@ small {
 }
 
 header {
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -143,57 +146,67 @@ header {
 section {
     width: 96%;
     max-width: var(--ns-max-width);
-    box-sizing: border-box;
     background: var(--ns-white);
     padding: 2em;
     
 }
 
-span{
-    color: var(--ns-red-alert);
-}
-
 form {
     width: 96%;
-    box-sizing: border-box;
     max-width: var(--ns-max-width);
 }
 
 fieldset {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     margin-top: 1em;
-    padding: 2em 2em 1em 2em;
+    padding: var(--padd) var(--padd) 1em var(--padd);
     border:none;
     border-radius: var(--ns-border-radius);
     background: var(--ns-white);
 }
 
 fieldset > fieldset {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
     margin-top: 0;
 }
 
 legend {
-    display: block;
-    margin-left:-1.5em;
-    width: 100%;
-    padding: 1em;
+    color: var(--ns-blue);
+    display: inline-block;
+    width: calc(100% + (var(--padd) * 2) );
+    padding: 1em 0 0 1em;
+    margin-left: calc( var(--padd) * -1);
     background:var(--ns-white);
+    border-radius: var(--ns-border-radius) var(--ns-border-radius) 0 0;
 }
+
+fieldset fieldset legend {
+    padding-top: 1em;
+    background: none;
+}
+
 label{
     display: inline-block;
     width: 18em;
+    padding-bottom:.5em;
 }
 input {
-    width: 50%;
+    width: 100%;
     flex-grow: 1;
     padding: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     border: 1px solid var(--ns-grey-20);
     border-radius: var(--ns-border-radius)
 }
 
 input[type=radio] {
-width: fit-content;
+width: 5%;
+flex-grow:0;
+padding-left: 0;
+margin-left: 0;
 }
 
 .intro div {
@@ -225,7 +238,17 @@ input[type=submit] {
 .tip p{
     padding: 0;
 }
+input:user-valid{
+    outline: 2px solid var(--ns-green);
+}
 
+input:has(input:valid) input:after{
+content: '✅';
+}
+
+input:user-invalid{
+    outline: 2px solid var(--ns-red-alert);
+}
 /* Bijna elke input in dit formulier is required dus dit is niet de beste methode omdat dan alles een * krijgt maar ik wilde testen of dit werkt */
 label:has(+ input:required)::after{
     content: " *";
@@ -235,11 +258,24 @@ label:has(+ input:required)::after{
 #statusKeuze2:checked ~ .hidden {
     display: block;
 }
+
+
+@media (min-width: 700px) {
+    input {
+        width: 50%;
+    }
+    
+}
 /* Support voor bepaalde progessive enhancement niet supporten */
-/* @supports selector(:has(input:checked)) {
+
+fieldset{
+flex-direction: row;
+flex-wrap: wrap;
+}
+@supports selector(:has(input:checked)) {
     .hidden{
         display: none;
         background: var(--ns-light-blue);
     }
-} */
+}
 

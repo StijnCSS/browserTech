@@ -20,7 +20,7 @@
     </section>
      
     <form action="stijnzwaard.nl">
-            <div class="tip"> <p>Velden gemarkeerd met een <span>*</span> zijn verplicht</p></div>
+            <div class="tip"> <p>Velden gemarkeerd met een * zijn verplicht</p></div>
             <fieldset>
                 <legend>1 Gegevens van de overledene</legend>
                 <fieldset>
@@ -34,7 +34,9 @@
                     
                     <label for="overlijdensDatum">Overlijdensdatum</label>
                     <input type="date" id="overlijdensDatum" placeholder="06-03-2025" required/>
+                    
                 </fieldset>
+                
                 <fieldset>
                     <legend>1b status</legend>
                     
@@ -68,6 +70,7 @@
                 </fieldset>
                 
                 <fieldset>
+                
                     <legend>1c Kinderen</legend>
                     <p>Had de overledene kinderen?</p>
                     
@@ -92,35 +95,44 @@
                     
                     <input type="radio" name="kinderenVanKinderen" id="kinderenVanKinderen2" value="Ja" required>
                     <label for="kinderenVanKinderen2">Ja</label>
+                    
                 </fieldset>
                 
                 <fieldset>
+                
                     <legend>1d Had de overlede een testament?</legend>
                     
                     <p>Had dit overleden kind zelf kinderen?</p>
                     
-                    <input type="radio" name="testament" id="testament1" value="Nee" required>
-                    <label for="testament1">Nee. Ga verder met vraag 2.</label>
+                    <div>
+                        <input type="radio" name="testament" id="testament1" value="Nee" required>
+                        <label for="testament1">Nee. Ga verder met vraag 2.</label>
+                    </div>
+                    <div>
+                        
+                        <input type="radio" name="testament" id="testament2" value="Ja" required>
+                        <label for="testament2">Ja. Vul de gegevens in van de notaris die het testament heeft opgemaakt en de datum van het testament.</label>
+                    </div>
                     
-                    <input type="radio" name="testament" id="testament2" value="Ja" required>
-                    <label for="testament2">Ja. Vul de gegevens in van de notaris die het testament heeft opgemaakt en de
-                        datum van het testament.</label>
                 </fieldset>
                 
                 <fieldset>
+                
                     <legend>Informatie notaris</legend>
                     <label for="protocolnummerNotaris">Protocolnummer notaris</label>
                     <input type="text" id="protocolnummerNotaris" pattern="[0-9]{6}">
                     
                     <label for="notarisNaam" >Naam</label>
                     <input type="text" id="notarisNaam" placeholder="Bijvoorbeeld Hein Van der Pas" required/>
+                    
                 </fieldset>
                 
             </fieldset>
         
-    <!-- <input type="submit" value="Formulier inleveren" /> -->
+    <input type="submit" value="Formulier inleveren" />
     </form>
 </body>
+<script src="localStorage.js"></script>
 </html>
 
 <!-- van Vasilis moet de width 280px worden maar als je dat zet dan krijg je altijd horizontal scroll -->
