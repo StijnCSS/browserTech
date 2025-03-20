@@ -261,3 +261,9 @@ input:user-invalid{
     gap: var(--size-small);
     margin-bottom: var(--size-large);
 }
+#parter01{
+    display: none;
+}
+#partner01:has(:checked){
+    display: flex;
+}

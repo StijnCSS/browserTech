@@ -46,7 +46,7 @@
                     </fieldset>
         
                     <fieldset>
-                        <legend><span>1b</span> Was de overledene getrouwd of had de overledene een geregistreerd partner op het moment van overlijden?</legend>
+                        <legend><span>1b</span> Had de overledene een geregistreerd partner?</legend>
                 
                         <div class="fifty">
                             <label>  <input type="radio" name="status" id="statusKeuze1" value="Nee" required/>Nee </label>
@@ -58,14 +58,14 @@
                     
                         <div>
                             <p>Hadden de overledene en diens echtgenoot of geregistreerd partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een notariële akte?</p>
-                            <div class="fifty">
+                            <div class="fifty" id="partner01">
                                 <label> <input type="radio" name="geregistreerdHuwelijk" id="huwelijkKeuze1" value="Nee" required /> Nee</label>
                                 <label> <input type="radio" name="geregistreerdHuwelijk" id="huwelijkKeuze2" value="Ja" required />Ja</label>
                             </div>
                             <input type="file" name="akte" id="aktePopout" value="Ja"/>
                             
                             <p>Hadden de overledene en diens partner een finaal verrekenbeding?</p>
-                            <div class="fifty">
+                            <div class="fifty" id="partner02">
                                 <label>Nee <input type="radio" name="verrekenbeding" id="verrekenbeding1" value="Nee" required/> </label>
                                 <label> Ja <input type="radio" name="verrekenbeding" id="verrekenbeding2" value="Ja" required /> </label>
                             </div>
@@ -130,7 +130,7 @@
     <!-- <progress></progress> -->
     </main>
 </body>
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
 </html>
 
 <!-- van Vasilis moet de width 280px worden maar als je dat zet dan krijg je altijd horizontal scroll -->
