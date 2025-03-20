@@ -36,3 +36,14 @@ document.addEventListener('input', saveFormData);
 
 // Clear data on form submit (optional)
 document.querySelector('form').addEventListener('submit', clearFormData);
+
+
+
+// Date  Picker https://www.youtube.com/live/d9JAQLJ3XoI
+
+var today = new Date().toISOString().split('T')[0]; //ISO is een format voor datums. T split de datum en tijd
+
+document.getElementById("overlijdensDatum").setAttribute("max", today);
+
+
+

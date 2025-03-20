@@ -63,11 +63,12 @@ background: var(--ns-grey-90);
 
 /* https://www.marcbacon.com/tools/clamp-calculator/ CLAMP CALC */
 
-/* Heading XXL */
 h1,h2,h3 {
     color:  var(--ns-blue);
     font-weight: 400;
 }
+
+/* Heading XXL */
 h1 {
     font-size: clamp(2.25rem, 0.485rem + 4.412vw, 3rem);
     line-height: 1.25;
@@ -221,8 +222,9 @@ input[type=submit] {
     color: var(--ns-white);
     font-weight: 400;
     font-size: 1em;
-    
 }
+
+
 
 .tip{
     display: flex;
@@ -242,23 +244,21 @@ input:user-valid{
     outline: 2px solid var(--ns-green);
 }
 
-input:has(input:valid) input:after{
-content: '✅';
-}
 
 input:user-invalid{
     outline: 2px solid var(--ns-red-alert);
 }
+
+
 /* Bijna elke input in dit formulier is required dus dit is niet de beste methode omdat dan alles een * krijgt maar ik wilde testen of dit werkt */
-label:has(+ input:required)::after{
+/* label:has(+ input:required)::after{
     content: " *";
     color: var(--ns-red-alert); 
-}
+} */
 
-#statusKeuze2:checked ~ .hidden {
+#statusKeuze2:checked  .hidden {
     display: block;
 }
-
 
 @media (min-width: 700px) {
     input {
@@ -266,6 +266,13 @@ label:has(+ input:required)::after{
     }
     
 }
+
+/* progress{
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+
+} */
 /* Support voor bepaalde progessive enhancement niet supporten */
 
 fieldset{
