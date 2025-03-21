@@ -1,136 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belastingdienst</title>
+    <title>mucho serieuso formulier</title>
     <link rel="stylesheet" href="stylev2.css">
 </head>
+
 <body>
-    <header> 
+    <header>
         <p><small>Dit is een <strong>school project</strong> en geen echt belastings NS formulier</small></p>
     </header>
     <main>
         <section class="intro">
-             <div>
+            <div>
                 <img src="./images/logo.svg" alt="NS Logo">
                 <h1>Erfbelasting aangifte</h1>
             </div>
             <p>Met dit formulier doet u aangifte erfbelasting voor een overlijden in 2023.
-                Doet u liever online aangifte? In de meeste gevallen gevallen kunt u online aangifte doen op Mijn Belastingdienst.
-                U logt in op Mijn Belastingdienst via belastingdienst.nl/erfbelasting. Daar leest u ook hoe online aangifte doen werkt.</p>
-        </section>    
-        <form action="stijnzwaard.nl">
-        
-                <div class="tip"> <p>Alle velden zijn verplicht, tenzij anders aangegeven.</p></div>
-                
+                Doet u liever online aangifte? In de meeste gevallen gevallen kunt u online aangifte doen op Mijn
+                Belastingdienst.
+                U logt in op Mijn Belastingdienst via belastingdienst.nl/erfbelasting. Daar leest u ook hoe online
+                aangifte doen werkt.</p>
+        </section>
+
+        <form action="bedankt.html">
+
+            <div class="tip">
+                <p>Alle velden zijn verplicht, tenzij anders aangegeven.</p>
+            </div>
+
+            <fieldset>
+                <legend>1 Gegevens van de overledene</legend>
+<!-- 1a -->
                 <fieldset>
-                    <legend>1 Gegevens van de overledene</legend>
-                    <fieldset>
-                        <legend><span>1a</span> Gegevens</legend>
-        
+                    <legend><span>1a</span> Gegevens</legend>
+
+                    <label>
+                        Naam <input type="text" id="overlijdeneNaam" placeholder="Bijvoorbeeld Hein Van der Pas"
+                            title="Bijvoorbeeld Hein Van der Pas"
+                            oninvalid="this.setCustomValidity('Vul hier je volledige naam in')" required />
+                    </label>
+
+                    <div class="fifty">
                         <label>
-                            Naam <input type="text" id="overlijdeneNaam" placeholder="Bijvoorbeeld Hein Van der Pas" title="Bijvoorbeeld Hein Van der Pas" required/>
+                            <button type="button" popovertarget="bsnPopover"> Burgerservicenummer </button>
+                            <input type="text" id="overlijdeneBsn"
+                                placeholder="Bijvoorbeeld 183462758" maxlength="9" pattern="[0-9]{9}"
+                                oninvalid="this.setCustomValidity('Een BSN nummer bestaat uit 9 cijfers')" required />
                         </label>
                         
-                        <div class="fifty">
                         <label>
-                            Burgerservicenummer <input type="text" id="overlijdeneBsn" placeholder="Bijvoorbeeld 183462758" maxlength="9" pattern="[0-9]{9}" title="Een BSN nummer bestaat uit 9 cijfers" required/>
+                            Overlijdensdatum <input type="date" id="overlijdensDatum"
+                                oninvalid="this.setCustomValidity('Voer een geldige datum in')" required />
                         </label>
-        
-                        <label>
-                            Overlijdensdatum <input type="date" id="overlijdensDatum" title="Voer een geldige datum in" required/>
-                        </label>
+                    </div>
+                </fieldset>
+
+<!-- 1b -->
+                <fieldset id="partner">
+                    <legend><span>1b</span> Had de overledene een geregistreerd partner?</legend>
+
+                    <div class="fifty" id="hidden-status-toggle">
+                        <label> <input type="radio" name="status" id="statusKeuze-nee" value="Nee" required />Nee <span>Ga verder met vraag 1c</span></label>
+                        <label> <input type="radio" name="status" id="statusKeuze-ja" value="Ja" required />Ja </label>
+                    </div>
+
+                    <div id="status-hidden-1">
+                        <p>Hadden de overledene en diens echtgenoot of geregistreerd partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een notariële akte?</p>
+                        <div class="fifty" id="huwelijk">
+                        <!-- required verwijderd als Nee geselecteerd wordt bij de vorige vraag kan het formulier nog steeds gesubmit worden als deze vragen neit ingevuld hoeven worden -->
+                            <label> <input type="radio" name="geregistreerdHuwelijk" id="huwelijk-nee" value="Nee"
+                                     /> Nee</label>
+                            <label> <input type="radio" name="geregistreerdHuwelijk" id="huwelijk-ja" value="Ja"
+                                     />Ja</label>
                         </div>
-        
-                    </fieldset>
-        
-                    <fieldset>
-                        <legend><span>1b</span> Had de overledene een geregistreerd partner?</legend>
+                        <input type="file" name="akte" accept="application/pdf" id="aktePopout" value="Ja" />
+
+                        <p>Hadden de overledene en diens partner een finaal verrekenbeding?</p>
+                        <div class="fifty" id="partner02">
+                            <label>Nee <input type="radio" name="verrekenbeding" id="verrekenbeding-Nee" value="Nee"
+                                    /> </label>
+                            <label> Ja <input type="radio" name="verrekenbeding" id="verrekenbeding-Ja" value="Ja"
+                                     /> </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="kinderen">
+                    <legend><span>1c</span> Had de overledene kinderen?</legend>
+
+                    <div class="fifty">
+                        <label>Nee<span>Ga verder met vraag 1d</span><input type="radio" name="kinderen" id="kinderen1" value="Nee" required> </label>
+                        <label>Ja <input type="radio" name="kinderen" id="kinderen2" value="Ja" required> </label>
+                    </div>
+
+                    <p>Is één van deze kinderen eerder overleden dan de overledene voor wie u nu aangifte doet?</p>
+
+
+                    <div class="fifty">
+                        <label> Nee <input type="radio" name="kinderenOverleden" id="kinderenOverleden1" value="Nee"
+                                required> </label>
+                        <label> Ja <input type="radio" name="kinderenOverleden" id="kinderenOverleden2" value="Ja"
+                                required> </label>
+                    </div>
+
+
+                    <p>Had dit overleden kind zelf kinderen?</p>
+
+                    <div class="fifty">
+                        <label> Nee <input type="radio" name="kinderenVanKinderen" id="kinderenVanKinderen1" value="Nee"
+                                required="test"> </label>
+                        <label> Ja <input type="radio" name="kinderenVanKinderen" id="kinderenVanKinderen2" value="Ja"
+                                required> </label>
+                        </div>
+                </fieldset>
+
+
+
+                <fieldset>
+
+                    <legend><span>1d</span>Informatie notaris</legend>
+                    <label> Protocolnummer notaris <input type="text" id="protocolnummerNotaris" maxlength="6"
+                            pattern="[0-9]{6}"></label>
+
+                    <label> Naam <input type="text" id="notarisNaam" placeholder="Bijvoorbeeld Hein Van der Pas"
+                            required /> </label>
+
+                </fieldset>
                 
-                        <div class="fifty">
-                            <label>  <input type="radio" name="status" id="statusKeuze1" value="Nee" required/>Nee </label>
-                            <!-- Ga verder met vraag 1c -->
-                            <label> <input type="radio" name="status" id="statusKeuze2" value="Ja" required /> Ja </label>
-                        </div>
-                    
-                   
-                    
-                        <div>
-                            <p>Hadden de overledene en diens echtgenoot of geregistreerd partner huwelijkse of partnerschapsvoorwaarden laten vastleggen in een notariële akte?</p>
-                            <div class="fifty" id="partner01">
-                                <label> <input type="radio" name="geregistreerdHuwelijk" id="huwelijkKeuze1" value="Nee" required /> Nee</label>
-                                <label> <input type="radio" name="geregistreerdHuwelijk" id="huwelijkKeuze2" value="Ja" required />Ja</label>
-                            </div>
-                            <input type="file" name="akte" id="aktePopout" value="Ja"/>
-                            
-                            <p>Hadden de overledene en diens partner een finaal verrekenbeding?</p>
-                            <div class="fifty" id="partner02">
-                                <label>Nee <input type="radio" name="verrekenbeding" id="verrekenbeding1" value="Nee" required/> </label>
-                                <label> Ja <input type="radio" name="verrekenbeding" id="verrekenbeding2" value="Ja" required /> </label>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-        
-                        <legend><span>1c</span> Had de overledene kinderen?</legend>
-
-        
-                        <div class="fifty">
-                            <label>Nee <input type="radio" name="kinderen" id="kinderen1" value="Nee" required> </label>
-                            <!-- Ga verder met vraag 1d -->
-                            <label>Ja <input type="radio" name="kinderen" id="kinderen2" value="Ja" required> </label>
-                        </div>
-        
-                        <p>Is één van deze kinderen eerder overleden dan de overledene voor wie u nu aangifte doet?</p>
-        
-                        
-                            <div class="fifty">
-                                <label> Nee  <input type="radio" name="kinderenOverleden" id="kinderenOverleden1" value="Nee" required> </label>
-                                <label> Ja <input type="radio" name="kinderenOverleden" id="kinderenOverleden2" value="Ja" required> </label>
-                            </div>
-                        
-        
-                        <p>Had dit overleden kind zelf kinderen?</p>
-        
-                        <div class="fifty">
-                            <label> Nee <input type="radio" name="kinderenVanKinderen" id="kinderenVanKinderen1" value="Nee" required> </label>
-                            <label> Ja <input type="radio" name="kinderenVanKinderen" id="kinderenVanKinderen2" value="Ja" required> </label>
-                        </div>
-        
-                    </fieldset>
-        
-                    <fieldset>
-        
-                        <legend><span>1d</span> Had de overlede een testament?</legend>
-        
-                        <p>Had dit overleden kind zelf kinderen?</p>
-        
-                        <div class="fifty">
-                            <label> Nee<input type="radio" name="testament" id="testament1" value="Nee" required> </label>
-                            <!-- Ga verder met vraag 2  -->
-                            <label>Ja  <input type="radio" name="testament" id="testament2" value="Ja" required></label>
-                            <!-- Vul de gegevens in van de notaris die het testament heeft opgemaakt en de datum van het testament. -->
-                        </div>
-                    
-        
-                    </fieldset>
-        
-                    <fieldset>
-        
-                        <legend>Informatie notaris</legend>
-                        <label> Protocolnummer notaris <input type="text" id="protocolnummerNotaris" maxlength="6" pattern="[0-9]{6}"></label>
-        
-                        <label> Naam <input type="text" id="notarisNaam" placeholder="Bijvoorbeeld Hein Van der Pas" required/> </label>
-        
-                    </fieldset>
-                    <input type="submit" value="Formulier inleveren" />
-                <!-- 
-        </form> -->
-    <!-- <progress></progress> -->
+                <input type="submit" value="Formulier inleveren" />
+        </form>
+                <progress id="scrollProgress" max="100" value="20"></progress>
     </main>
+    <div id="bsnPopover" popover>
+        <h2>Wat is een bsn</h2>
+        <p>Het burgerservicenummer is een uniek persoonsgebonden nummer in het Europese deel van Nederland. Iedereen die zich laat inschrijven in de Basisregistratie Personen krijgt zo'n nummer.</p>
+    </div>
 </body>
-<!-- <script src="script.js"></script> -->
-</html>
+<script src="script.js"></script>
 
-<!-- van Vasilis moet de width 280px worden maar als je dat zet dan krijg je altijd horizontal scroll -->
+</html>

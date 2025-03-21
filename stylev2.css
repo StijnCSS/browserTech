@@ -117,6 +117,13 @@ h6 {
     font-size: clamp(1rem, 0.706rem + 0.735vw, 1.125rem);
     line-height: 1.4; 
 }
+label button{
+    background: none;
+    color: var(--ns-blue);
+    border: none;
+    font-size: 1rem;
+    text-decoration: underline;
+}
 
 header {
     position: fixed;
@@ -166,6 +173,27 @@ fieldset fieldset {
     margin-bottom: var(--size-large);
 }
 
+fieldset > fieldset legend {
+    color: var(--ns-grey);
+    width: calc(100% + ( var(--size-large) * 2) );
+    margin-left: calc( var(--size-large) * -1);
+    padding-bottom: 0;
+    border-radius: var(--size-small);
+}
+
+fieldset + fieldset {
+    opacity: 0;
+    transition:300ms;
+    transform:translateY(20%)
+}
+
+/* fieldset:valid {} */
+
+fieldset:valid + fieldset {
+    opacity:1;
+    transform:translateY(0)
+}
+
 fieldset p {
     margin-bottom: var(--size-large);
 }
@@ -189,27 +217,6 @@ legend span {
     font-size: 0.875rem;
     font-weight: 600;
 }
-fieldset > fieldset legend {
-    color: var(--ns-grey);
-    width: calc(100% + ( var(--size-large) * 2) );
-    margin-left: calc( var(--size-large) * -1);
-    padding-bottom: 0;
-    border-radius: var(--size-small);
-}
-
-fieldset + fieldset {
-    opacity: 0;
-    transition:300ms;
-    transform:translateY(20%)
-}
-fieldset:valid + fieldset {
-    opacity:1;
-    transform:translateY(0)
-  }
-/* fieldset:has(:not(fieldset)) {
-    border-top-left-radius: var(--size-small);
-    border-top-right-radius: var(--size-small);
-} */
 
 label{
     display: block;
@@ -221,7 +228,7 @@ input {
     width: 100%;
     flex-grow: 1;
     padding: 1em;
-    margin-top:var(--size-small);
+    margin-top:var(--size-large);
     margin-bottom: var(--size-large);
     border: 1px solid var(--ns-grey-20);
     border-radius: var(--size-xs);
@@ -243,27 +250,104 @@ label:has([type=radio]:hover){
 }
 
 label:has([type=radio]:checked){
-    background-color:var(--ns-light-blue-2);
-    outline: 1px solid var(--ns-blue);
-}
-
-
-input:user-valid{
+    background-color:#009a4323;
     outline: 2px solid var(--ns-green);
 }
 
 
+input:user-valid{
+    outline: 4px solid var(--ns-green);
+}
+
+
 input:user-invalid{
-    outline: 2px solid var(--ns-red-alert);
+    outline: 4px solid var(--ns-red-alert);
 }
 .fifty {
     display: flex;
-    gap: var(--size-small);
-    margin-bottom: var(--size-large);
+    gap: var(--size-large);
+    margin-bottom: var(--size-xl);
 }
-#parter01{
+
+input[type=submit]{
+    background-color: var(--ns-blue);
+    color: var(--ns-white);
+    border-radius: var(--size-small);
+    margin-top: 0;
     display: none;
 }
-#partner01:has(:checked){
-    display: flex;
+
+form:valid input[type=submit]{
+display: block;}
+
+
+#bsnPopover{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: 90%;
+    max-width: 30rem;
+    padding: var(--size-xl);
+    border-radius: var(--size-small);
+    background-color: var(--ns-white);
+    border: none;
+    
+    &::backdrop{
+    background-color: rgba(4, 3, 70, 0.20);}
+}
+
+#partner:valid #kinderen {
+display: block;}
+
+#verrekenbeding:checked #kinderen {
+display: block;}
+
+progress {
+position: fixed;
+top:45px;
+left: 0;
+}
+
+progress[value]{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 1rem;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: var(--ns-grey-94);
+  }
+  
+progress[value]::-webkit-progress-value{
+    background-color: var(--ns-yellow);
+}
+
+.bedankt{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.bedankt a{
+    padding: var(--size-large) var(--size-xl);
+    background-color: var(--ns-blue);
+    color: var(--ns-white);
+    text-decoration:none;
+    text-align: center;
+}
+
+.bedankt a:hover{
+    background-color: var(--ns-grey);
+}
+.wrapper{
+display: flex;
+flex-direction: column;
+gap: var(--size-small);
+width: 96vw;
+max-width: 40rem;
+height: fit-content;
+padding: var(--size-xxl);
+background-color: white;
 }
