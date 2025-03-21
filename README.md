@@ -22,29 +22,30 @@ Ik heb een lijst variabelen overgenomen van de NS website om zo dicht mogelijk b
 `input:user-valid & invalid` er is veel visuele feedback dat de gebruiker krijgt dat voornamelijk positief is tenzij dat niet mogelijk is. Ik heb de outline 4px gemaakt zodat mensen met slecht zicht het verschil zien. Als ik het veerder zou moeten uitwerken zou ik ook checks en crosses toevoegen zodat een persoon die kleurenblind is ook het verschil kan zien.  
 
 ## JS Validatie
-# Radio button event listener
+### Radio button event listener
 Div's kunnen niet zoals fieldsets `:valid` zijn. Ik heb daarom Javascript validatie dat kijkt welke keuze getoggled is en veranderd de `display` value van bepaalde id's  
 
-# Clean labels door JS
+### Clean labels door JS
 In het formulier staan dingen zoals `nee. ga naar ...` met een digitaal formulier is dit niet nodig dus ik heb die onderdelen van de label in een span gezet en dezet op display none gezet wanneer JS ingeladen wordt
-# Date picker
+### Date picker
 Ik heb Javascript dat ervoor zorgt dat de gebruiker niet iets in de toekomst kan selecteren.  
 
 
 ## User Experience
 
-# Responsive
+### Responsive
 Mijn formulier is responsive en is altijd goed leesbaar. Ik heb de max-width van mijn form op 800 px gezet excl padding etc.  
 Ik heb gekeken naar de breedte van mijn input fields om ze te matchen met de content dat erin moet komen. 
-# Popover
+### Popover
 Ik gebruik een `popover` voor moeilijke termen zoals Burgerservicenummer. Als iemand de term niet kent dan wordt er meer informatie via een popover verschaft
-# Radio buttons
+### Radio buttons
 Ik heb de radio buttons een grote touch area gegeven dat klikt prettig en voorkomt fouten
-# Local storage
+### Local storage
 Ik heb gekozen voor local storage omdat Localstorage de data vasthoudt ook als je de browser hebt afgesloten. Voor een formulier van 40+ pagina's wil je voorkomen dat je halverwege overnieuw moet beginnen. Het nadeel van Local storage is dat er een limiet zit op de opslag maar dat is voor een form prima.  
-# Progress bar
+### Progress bar
 Ik wil graag een progress bar die bijhoudt hoeveel inputs valid en ingevuld zijn progressie toeveogd. Dit is te complex voor mij dus heb ik er een gemaakt die doormiddel vna scroll progressie toevoegd. Fake it till you make it :)  
-# bedankt scherm
+### bedankt scherm
 Als het formulier ingevuld is krijgt de gebruiker een duidelijke conclusie krijgt te zien.
 
-### Bronnen
+# Bronnen
+Ik heb weinig ervaring met Javascript dus ik heb veel chatGPT gebruikt voor syntax errors en debugging van mijn JS code.
